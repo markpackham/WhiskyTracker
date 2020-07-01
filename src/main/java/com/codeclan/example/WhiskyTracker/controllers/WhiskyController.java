@@ -32,8 +32,8 @@ public class WhiskyController {
 
     //http://localhost:8080/whiskies?distillery=GlendronachAndAge=2018
     //http://localhost:8080/whiskies?distillery=Glendronach
-    @GetMapping(value = "/whiskies")
-    public ResponseEntity<List<Whisky>> findAllWhiskyByDistilleryAndYear(@RequestParam(name="distillery"))
+//    @GetMapping(value = "/whiskies")
+//    public ResponseEntity<List<Whisky>> findAllWhiskyByDistilleryAndYear(@RequestParam(name="distillery"));
 
 
 }
