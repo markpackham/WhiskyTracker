@@ -26,6 +26,7 @@ public class WhiskyController {
 
     @GetMapping(value = "/whiskies")
     //http://localhost:8080/whiskies?year=2018
+    //http://localhost:8080/whiskies?distillery=Glendronach
     public ResponseEntity<List<Whisky>> findWhiskyByYear(
             @RequestParam(name="year", required = false) Integer year,
             @RequestParam(name="distillery", required = false) String distillery){
