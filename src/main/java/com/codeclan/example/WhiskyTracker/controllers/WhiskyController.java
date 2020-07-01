@@ -29,9 +29,11 @@ public class WhiskyController {
     //http://localhost:8080/whiskies?age=15
     //http://localhost:8080/whiskies?age=15&&distillery=Glendronach
     //http://localhost:8080/whiskies?distillery=Glendronach
+    //http://localhost:8080/whiskies?region=Highland
     public ResponseEntity<List<Whisky>> findWhiskyByYear(
             @RequestParam(name="year", required = false) Integer year,
             @RequestParam(name="age", required = false) Integer age,
+            @RequestParam(name="region", required = false) String region,
             @RequestParam(name="distillery", required = false) String distillery){
         Distillery foundDistillery = distilleryRepository.findByName(distillery);
         if(year != null){
@@ -45,6 +47,9 @@ public class WhiskyController {
         }
         else if(age !=null){
             return new ResponseEntity<>(whiskyRepository.findWhiskyByAge(age),HttpStatus.OK);
+        }
+        else if(region !=null){
+            return new ResponseEntity<>(whiskyRepository.findWhiskyByDistilleryRegion(region),HttpStatus.OK);
         }
         else{
             return new ResponseEntity<>(whiskyRepository.findAll(), HttpStatus.OK);
