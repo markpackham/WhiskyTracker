@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-//@RequestMapping(value = "/distilleries")
 public class DistilleryController {
 
     @Autowired
@@ -36,7 +35,6 @@ public class DistilleryController {
         }
         else if(age != null){
             return new ResponseEntity<>(distilleryRepository.findDistilleryByWhiskiesAge(age), HttpStatus.OK);
-            //return null;
         }
         else{
             return new ResponseEntity<>(distilleryRepository.findAll(), HttpStatus.OK);
